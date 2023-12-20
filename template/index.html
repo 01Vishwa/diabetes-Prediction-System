@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
 
+    <style>
+        body {
+           font-family: 'Google Sans', sans-serif;
+            font-weight: bold;
+            background: linear-gradient(to right, #9c27b0, #ff6600);
+            margin: 0;
+            overflow: hidden;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 40px;
+            text-align: center;
+            font-weight: bold;
+            border: 3px solid #007bff;
+            border-radius: 10px;
+            padding: 5px;
+        }
+        form {
+           font-family: 'Google Sans', sans-serif;
+            font-weight: bold;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 0.5s ease-out;
+            max-width: 350px;
+            width: 90%;
+            box-sizing: border-box;
+            margin: 15px auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-top: 20px;
+        }
+
+        p {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>Diabetes Prediction</h1></center>
+    <form method="post" action="/predict">
+        <label for="pregnancies">Number of Pregnancies:</label>
+        <input type="number" name="pregnancies" required><br>
+
+        <label for="glucose">Glucose Level:</label>
+        <input type="number" name="glucose" required><br>
+
+        <label for="blood_pressure">Blood Pressure:</label>
+        <input type="number" name="blood_pressure" required><br>
+
+        <label for="skin_thickness">Skin Thickness:</label>
+        <input type="number" name="skin_thickness" required><br>
+
+        <label for="insulin">Insulin Level:</label>
+        <input type="number" name="insulin" required><br>
+
+        <label for="bmi">BMI:</label>
+        <input type="number" name="bmi" required><br>
+
+        <label for="dpf">Diabetes Pedigree Function:</label>
+        <input type="number" name="dpf" required><br>
+
+        <label for="age">Age:</label>
+        <input type="number" name="age" required><br>
+
+       <center> <button type="submit">Predict</button></center>
+    </form>
+    {% if prediction %}
+        <h2>Prediction Result:</h2>
+        <p>{{ prediction }}</p>
+    {% endif %}
+</body>
+</html>
